@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.10b]
+### Added
+- Added a decimal_places config option to change how many numbers to display after the decimal point. Setting it to `1` will round a float value of `33.00001` down to `33.0`.
+
 ## [0.3.9b]
 ### Added
 - Added port option in the config so now you can use other ports than the default 1883
