@@ -25,6 +25,7 @@ protocol: ''
 units: 'si'
 discovery_prefix: homeassistant
 discovery_interval: 600
+decimal_places: 1
 debug: false
 ```
 
@@ -75,7 +76,11 @@ The mqtt prefix for autodiscovery. `homeassistant` should work. If you use anoth
 
 ### Option: `discovery_interval`
 
-`600` means Home Assisatnt will check for new devices every 600 seconds. 
+`600` means Home Assisatnt will check for new devices every 600 seconds.
+
+### Option: `decimal_places`
+
+How many numbers to display after the decimal point. For example `1` will round a value of `46.123456789` to `46.1`.
 
 ### Option: 'debug'
 
