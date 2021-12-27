@@ -22,6 +22,7 @@ WHITELIST="$(jq --raw-output '.whitelist' $CONFIG_PATH)"
 UNITS="$(jq --raw-output '.units' $CONFIG_PATH)"
 DISCOVERY_PREFIX="$(jq --raw-output '.discovery_prefix' $CONFIG_PATH)"
 DISCOVERY_INTERVAL="$(jq --raw-output '.discovery_interval' $CONFIG_PATH)"
+DECIMAL_PLACES="$(jq --raw-output '.decimal_places' $CONFIG_PATH)"
 DEBUG="$(jq --raw-output '.debug' $CONFIG_PATH)"
 
 # Start the listener and enter an endless loop
@@ -36,8 +37,9 @@ echo "PROTOCOL =" $PROTOCOL
 echo "Whitelist Enabled =" $WHITELIST_ENABLE
 echo "Whitelist =" $WHITELIST
 echo "UNITS =" $UNITS
-echo "DISCOVERY_PREFIX =" $DISCOVERY_PREFIX
-echo "DISCOVERY_INTERVAL =" $DISCOVERY_INTERVAL
+echo "DISCOVERY PREFIX =" $DISCOVERY_PREFIX
+echo "DISCOVERY INTERVAL =" $DISCOVERY_INTERVAL
+echo "DECIMAL PLACES =" $DECIMAL_PLACES
 echo "DEBUG =" $DEBUG
 
 

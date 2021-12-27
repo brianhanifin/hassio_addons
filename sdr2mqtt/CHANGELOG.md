@@ -6,9 +6,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.7]
+### Added
+- Added a decimal_places config option to change how many numbers to display after the decimal point. Setting it to `1` will round a float value of `33.00001` down to `33.0`.
+
 ## [0.1.6]
 ### Added
-- Added port to the config so you can use mwtt ports other than 1883
+- Added port to the config so you can use mqtt ports other than 1883
 
 ## [0.1.5]
 ### Added

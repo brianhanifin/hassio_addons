@@ -80,7 +80,7 @@ The mqtt prefix for autodiscovery. `homeassistant` should work. If you use anoth
 
 ### Option: `decimal_places`
 
-How many numbers to display after the decimal point. For example `1` will round a value of `46.123456789` to `46.1`.
+How many numbers to display after the decimal point. For example `1` will round a value of `33.00001` to `33.0`.
 
 ### Option: 'debug'
 

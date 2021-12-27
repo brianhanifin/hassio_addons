@@ -28,11 +28,13 @@ DISCOVERY_PREFIX = os.environ['DISCOVERY_PREFIX']
 WHITELIST_ENABLE = os.environ['WHITELIST_ENABLE']
 WHITELIST = os.environ['WHITELIST']
 DISCOVERY_INTERVAL = os.environ['DISCOVERY_INTERVAL']
+DECIMAL_PLACES = os.environ['DECIMAL_PLACES']
 DEBUG = os.environ['DEBUG']
 
 # Convert number environment variables to int
 MQTT_PORT = int(MQTT_PORT)
 DISCOVERY_INTERVAL = int(DISCOVERY_INTERVAL)
+DECIMAL_PLACES = int(DECIMAL_PLACES)
 
 discovery_timeouts = {}
 
@@ -46,7 +48,7 @@ mappings = {
             "device_class": "temperature",
             "name": "Temperature",
             "unit_of_measurement": "°C",
-            "value_template": "{{ value|float }}"
+            "value_template": "{{ value|round(DECIMAL_PLACES) }}"
         }
     },
     "temperature_1_C": {
@@ -56,7 +58,7 @@ mappings = {
             "device_class": "temperature",
             "name": "Temperature 1",
             "unit_of_measurement": "°C",
-            "value_template": "{{ value|float }}"
+            "value_template": "{{ value|round(DECIMAL_PLACES) }}"
         }
     },
     "temperature_2_C": {
@@ -66,7 +68,7 @@ mappings = {
             "device_class": "temperature",
             "name": "Temperature 2",
             "unit_of_measurement": "°C",
-            "value_template": "{{ value|float }}"
+            "value_template": "{{ value|round(DECIMAL_PLACES) }}"
         }
     },
     "temperature_F": {
@@ -76,7 +78,7 @@ mappings = {
             "device_class": "temperature",
             "name": "Temperature",
             "unit_of_measurement": "°F",
-            "value_template": "{{ value|float }}"
+            "value_template": "{{ value|round(DECIMAL_PLACES) }}"
         }
     },
 
@@ -98,7 +100,7 @@ mappings = {
             "device_class": "humidity",
             "name": "Humidity",
             "unit_of_measurement": "%",
-            "value_template": "{{ value|float }}"
+            "value_template": "{{ value|round(DECIMAL_PLACES) }}"
         }
     },
 
@@ -109,7 +111,7 @@ mappings = {
             "device_class": "humidity",
             "name": "Moisture",
             "unit_of_measurement": "%",
-            "value_template": "{{ value|float }}"
+            "value_template": "{{ value|round(DECIMAL_PLACES) }}"
         }
     },
 
@@ -120,7 +122,7 @@ mappings = {
             "device_class": "pressure",
             "name": "Pressure",
             "unit_of_measurement": "hPa",
-            "value_template": "{{ value|float }}"
+            "value_template": "{{ value|round(DECIMAL_PLACES) }}"
         }
     },
 
@@ -131,7 +133,7 @@ mappings = {
             "device_class": "pressure",
             "name": "Pressure",
             "unit_of_measurement": "kPa",
-            "value_template": "{{ value|float }}"
+            "value_template": "{{ value|round(DECIMAL_PLACES) }}"
         }
     },
     
@@ -142,7 +144,7 @@ mappings = {
             "device_class": "pressure",
             "name": "Pressure",
             "unit_of_measurement": "inHg",
-            "value_template": "{{ value|float }}"
+            "value_template": "{{ value|round(DECIMAL_PLACES) }}"
         }
     },
 
@@ -152,7 +154,7 @@ mappings = {
         "config": {
             "name": "Wind Speed",
             "unit_of_measurement": "km/h",
-            "value_template": "{{ value|float }}"
+            "value_template": "{{ value|round(DECIMAL_PLACES) }}"
         }
     },
 
@@ -162,7 +164,7 @@ mappings = {
         "config": {
             "name": "Wind Speed",
             "unit_of_measurement": "km/h",
-            "value_template": "{{ value|float }}"
+            "value_template": "{{ value|round(DECIMAL_PLACES) }}"
         }
     },
 
@@ -172,7 +174,7 @@ mappings = {
         "config": {
             "name": "Wind Speed",
             "unit_of_measurement": "mi/h",
-            "value_template": "{{ value|float }}"
+            "value_template": "{{ value|round(DECIMAL_PLACES) }}"
         }
     },
 
@@ -182,7 +184,7 @@ mappings = {
         "config": {
             "name": "Wind Average",
             "unit_of_measurement": "km/h",
-            "value_template": "{{ float(value|float) * 3.6 | round(2) }}"
+            "value_template": "{{ float(value|round(DECIMAL_PLACES)) * 3.6 | round(2) }}"
         }
     },
 
@@ -192,7 +194,7 @@ mappings = {
         "config": {
             "name": "Wind Speed",
             "unit_of_measurement": "km/h",
-            "value_template": "{{ float(value|float) * 3.6 }}"
+            "value_template": "{{ float(value|round(DECIMAL_PLACES)) * 3.6 }}"
         }
     },
 
@@ -202,7 +204,7 @@ mappings = {
         "config": {
             "name": "Gust Speed",
             "unit_of_measurement": "km/h",
-            "value_template": "{{ value|float }}"
+            "value_template": "{{ value|round(DECIMAL_PLACES) }}"
         }
     },
 
@@ -212,7 +214,7 @@ mappings = {
         "config": {
             "name": "Wind max",
             "unit_of_measurement": "km/h",
-            "value_template": "{{ float(value|float) * 3.6 | round(2) }}"
+            "value_template": "{{ float(value|round(DECIMAL_PLACES)) * 3.6 | round(2) }}"
         }
     },
 
@@ -222,7 +224,7 @@ mappings = {
         "config": {
             "name": "Gust Speed",
             "unit_of_measurement": "km/h",
-            "value_template": "{{ float(value|float) * 3.6 }}"
+            "value_template": "{{ float(value|round(DECIMAL_PLACES)) * 3.6 }}"
         }
     },
 
@@ -232,7 +234,7 @@ mappings = {
         "config": {
             "name": "Wind Direction",
             "unit_of_measurement": "°",
-            "value_template": "{{ value|float }}"
+            "value_template": "{{ value|round(DECIMAL_PLACES) }}"
         }
     },
 
@@ -242,7 +244,7 @@ mappings = {
         "config": {
             "name": "Rain Total",
             "unit_of_measurement": "mm",
-            "value_template": "{{ value|float }}"
+            "value_template": "{{ value|round(DECIMAL_PLACES) }}"
         }
     },
 
@@ -252,7 +254,7 @@ mappings = {
         "config": {
             "name": "Rain Rate",
             "unit_of_measurement": "mm/h",
-            "value_template": "{{ value|float }}"
+            "value_template": "{{ value|round(DECIMAL_PLACES) }}"
         }
     },
 
@@ -262,7 +264,7 @@ mappings = {
         "config": {
             "name": "Rain Total",
             "unit_of_measurement": "in",
-            "value_template": "{{ value|float }}"
+            "value_template": "{{ value|round(DECIMAL_PLACES) }}"
         }
     },
 
@@ -272,7 +274,7 @@ mappings = {
         "config": {
             "name": "Rain Rate",
             "unit_of_measurement": "in/h",
-            "value_template": "{{ value|float }}"
+            "value_template": "{{ value|round(DECIMAL_PLACES) }}"
         }
     },
 
@@ -304,7 +306,7 @@ mappings = {
         "config": {
             "device_class": "signal_strength",
             "unit_of_measurement": "dB",
-            "value_template": "{{ value|float|round(2) }}"
+            "value_template": "{{ value|round(2) }}"
         }
     },
 
@@ -314,7 +316,7 @@ mappings = {
         "config": {
             "device_class": "signal_strength",
             "unit_of_measurement": "dB",
-            "value_template": "{{ value|float|round(2) }}"
+            "value_template": "{{ value|round(2) }}"
         }
     },
 
@@ -324,7 +326,7 @@ mappings = {
         "config": {
             "device_class": "signal_strength",
             "unit_of_measurement": "dB",
-            "value_template": "{{ value|float|round(2) }}"
+            "value_template": "{{ value|round(2) }}"
         }
     },
 
@@ -334,7 +336,7 @@ mappings = {
         "config": {
             "name": "Depth",
             "unit_of_measurement": "cm",
-            "value_template": "{{ value|float }}"
+            "value_template": "{{ value|round(DECIMAL_PLACES) }}"
         }
     },
 
@@ -345,7 +347,7 @@ mappings = {
             "device_class": "power",
             "name": "Power",
             "unit_of_measurement": "W",
-            "value_template": "{{ value|float }}"
+            "value_template": "{{ value|round(DECIMAL_PLACES) }}"
         }
     },
 
